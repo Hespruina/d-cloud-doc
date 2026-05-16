@@ -5,7 +5,7 @@ export default defineConfig({
   description: 'Minecraft生存服务器文档站',
   
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     ['meta', { name: 'theme-color', content: '#0a0e1a' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],

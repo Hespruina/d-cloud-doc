@@ -90,6 +90,8 @@ features:
 
 <div class="home-section cta-section">
 
+<img src="/logo.png" alt="D-Cloud Logo" class="cta-logo" />
+
 ## 准备好加入了吗
 
 <p>加入我们的 Discord 社区，与其他玩家交流，获取最新服务器动态。</p>
