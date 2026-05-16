@@ -236,6 +236,13 @@ code {
   justify-content: center;
 }
 
+.VPFeature .icon svg {
+  stroke: currentColor;
+  fill: none;
+  width: 100%;
+  height: 100%;
+}
+
 .VPFeature .title {
   font-family: var(--font-heading);
   color: var(--vp-c-text-1);
@@ -883,6 +890,15 @@ code {
 
 .custom-block.danger .custom-block-title {
   color: var(--vp-c-danger);
+}
+
+/* 隐藏 VitePress 主题切换按钮 */
+.VPSwitchAppearance {
+  display: none !important;
+}
+
+.VPNavBarAppearance {
+  display: none !important;
 }
 
 /* 滚动条 */

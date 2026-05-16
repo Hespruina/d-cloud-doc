@@ -53,12 +53,23 @@ function initNavbarScroll() {
   handleScroll()
 }
 
+function forceDarkMode() {
+  const html = document.documentElement
+  html.classList.add('dark')
+  html.classList.remove('light')
+  html.style.colorScheme = 'dark'
+  localStorage.setItem('vitepress-theme-appearance', 'dark')
+}
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router, siteData }) {
     if (typeof window !== 'undefined') {
+      forceDarkMode()
+
       router.onAfterRouteChanged = () => {
         setTimeout(() => {
+          forceDarkMode()
           initStaggerAnimation()
           initScrollAnimation()
           initNavbarScroll()
@@ -67,11 +78,13 @@ export default {
 
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
+          forceDarkMode()
           initStaggerAnimation()
           initScrollAnimation()
           initNavbarScroll()
         })
       } else {
+        forceDarkMode()
         initStaggerAnimation()
         initScrollAnimation()
         initNavbarScroll()
