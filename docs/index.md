@@ -123,26 +123,28 @@ features:
 </style>
 
 <script>
-document.addEventListener('click', async (e) => {
-  const target = e.target.closest('.copy-trigger');
-  if (!target) return;
+if (typeof document !== 'undefined') {
+  document.addEventListener('click', async (e) => {
+    const target = e.target.closest('.copy-trigger');
+    if (!target) return;
 
-  const text = target.getAttribute('data-copy');
-  if (!text) return;
+    const text = target.getAttribute('data-copy');
+    if (!text) return;
 
-  try {
-    await navigator.clipboard.writeText(text);
-    let feedback = document.querySelector('.copy-feedback');
-    if (!feedback) {
-      feedback = document.createElement('div');
-      feedback.className = 'copy-feedback';
-      document.body.appendChild(feedback);
+    try {
+      await navigator.clipboard.writeText(text);
+      let feedback = document.querySelector('.copy-feedback');
+      if (!feedback) {
+        feedback = document.createElement('div');
+        feedback.className = 'copy-feedback';
+        document.body.appendChild(feedback);
+      }
+      feedback.textContent = '已复制到剪贴板';
+      feedback.classList.add('show');
+      setTimeout(() => feedback.classList.remove('show'), 1500);
+    } catch (err) {
+      console.error('复制失败:', err);
     }
-    feedback.textContent = '已复制到剪贴板';
-    feedback.classList.add('show');
-    setTimeout(() => feedback.classList.remove('show'), 1500);
-  } catch (err) {
-    console.error('复制失败:', err);
-  }
-});
+  });
+}
 </script>
