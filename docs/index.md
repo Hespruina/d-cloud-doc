@@ -52,8 +52,8 @@ features:
     <div class="info-value copy-trigger" data-copy="dc.zhrhello.top" title="点击复制">dc.zhrhello.top</div>
   </div>
   <div class="info-card">
-    <div class="info-label">推荐版本</div>
-    <div class="info-value">1.20.x - 1.21.11</div>
+    <div class="info-label">服务器版本</div>
+    <div class="info-value">1.21.8</div>
   </div>
   <div class="info-card">
     <div class="info-label">游戏模式</div>

@@ -8,15 +8,17 @@
 
 **A:** 按以下顺序排查:
 
-1. 确认Minecraft版本在 1.20 - 1.20.4 之间
+1. 确认Minecraft版本在 1.8 - 最新版本之间（建议至少使用 1.20）
 2. 检查网络连接是否稳定
-3. 尝试备用地址 <span class="copy-inline" data-copy="mc.d-cloud.com" title="点击复制">`mc.d-cloud.com`</span>
-4. 查看QQ公告确认服务器状态
-5. 重启Minecraft和路由器
+3. 尝试备用地址 <span class="copy-inline" data-copy="wh.frp.one:8852" title="点击复制">`wh.frp.one:8852`</span>
+4. 尝试备用地址 <span class="copy-inline" data-copy="cn.gz.alichenserver.hayfrp.qzz.io:12308" title="点击复制">`cn.gz.alichenserver.hayfrp.qzz.io:12308`</span>
+5. 尝试备用地址 <span class="copy-inline" data-copy="8790f7fff6d1.ofalias.com:24663" title="点击复制">`8790f7fff6d1.ofalias.com:24663`</span>
+6. 查看QQ公告确认服务器状态
+7. 重启Minecraft和路由器
 
 ### Q: 连接时显示 "Outdated Client"?
 
-**A:** 你的Minecraft版本过低。请升级到 1.20.x 版本。
+**A:** 你的Minecraft版本过低。请升级到 1.20 或更高版本。
 
 ### Q: 连接时显示 "Outdated Server"?
 

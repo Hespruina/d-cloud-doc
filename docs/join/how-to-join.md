@@ -14,26 +14,30 @@ dc.zhrhello.top
 
 备用地址:
 ```
-mc.d-cloud.com
+wh.frp.one:8852
+cn.gz.alichenserver.hayfrp.qzz.io:12308
+8790f7fff6d1.ofalias.com:24663
 ```
 
 <div class="copy-btn-wrapper">
-  <button class="copy-btn" data-copy="mc.d-cloud.com">复制备用地址</button>
+  <button class="copy-btn" data-copy="wh.frp.one:8852">复制备用地址1</button>
+  <button class="copy-btn" data-copy="cn.gz.alichenserver.hayfrp.qzz.io:12308">复制备用地址2</button>
+  <button class="copy-btn" data-copy="8790f7fff6d1.ofalias.com:24663">复制备用地址3</button>
 </div>
 
 ## 版本要求
 
-- **主版本**: 1.20.x
-- **推荐版本**: 1.20.4
-- **最低支持**: 1.20
+- **服务器主版本**: 1.21.8
+- **支持版本**: 1.8 - 最新版本
+- **推荐版本**: 1.20 及以上
 
-> 注意: 服务器不支持1.20以下版本或快照版本。
+> 注意: 建议至少使用 1.20 版本以获得最佳体验。
 
 ## 加入步骤
 
 ### 第一步: 启动Minecraft
 
-打开Minecraft启动器,选择正确的版本(1.20.x)并启动游戏。
+打开Minecraft启动器,选择正确的版本并启动游戏。
 
 ### 第二步: 进入多人游戏
 
@@ -84,7 +88,9 @@ mc.d-cloud.com
 
 - 检查网络连接
 - 确认Minecraft版本正确
-- 尝试备用地址 `mc.d-cloud.com`
+- 尝试备用地址 `wh.frp.one:8852`
+- 尝试备用地址 `cn.gz.alichenserver.hayfrp.qzz.io:12308`
+- 尝试备用地址 `8790f7fff6d1.ofalias.com:24663`
 - 检查服务器是否在维护
 
 ### Q: 忘记密码怎么办?
