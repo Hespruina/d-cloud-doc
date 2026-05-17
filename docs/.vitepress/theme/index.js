@@ -53,23 +53,94 @@ function initNavbarScroll() {
   handleScroll()
 }
 
-function forceDarkMode() {
+function getStoredTheme() {
+  try {
+    return localStorage.getItem('vitepress-theme-appearance')
+  } catch {
+    return null
+  }
+}
+
+function setStoredTheme(theme) {
+  try {
+    localStorage.setItem('vitepress-theme-appearance', theme)
+  } catch {
+    // ignore
+  }
+}
+
+function applyTheme(theme) {
   const html = document.documentElement
-  html.classList.add('dark')
-  html.classList.remove('light')
-  html.style.colorScheme = 'dark'
-  localStorage.setItem('vitepress-theme-appearance', 'dark')
+  if (theme === 'light') {
+    html.classList.add('light')
+    html.classList.remove('dark')
+    html.style.colorScheme = 'light'
+  } else {
+    html.classList.add('dark')
+    html.classList.remove('light')
+    html.style.colorScheme = 'dark'
+  }
+}
+
+function toggleTheme() {
+  const html = document.documentElement
+  const isLight = html.classList.contains('light')
+  const newTheme = isLight ? 'dark' : 'light'
+  applyTheme(newTheme)
+  setStoredTheme(newTheme)
+  updateToggleButton(newTheme)
+}
+
+function updateToggleButton(theme) {
+  const btn = document.querySelector('.custom-theme-toggle')
+  if (!btn) return
+  btn.innerHTML = theme === 'light'
+    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
+    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
+}
+
+function initTheme() {
+  const stored = getStoredTheme()
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const theme = stored || (prefersDark ? 'dark' : 'light')
+  applyTheme(theme)
+  updateToggleButton(theme)
+}
+
+function injectThemeToggle() {
+  const insertToggle = () => {
+    const target = document.querySelector('.VPNavBarExtra') || document.querySelector('.VPNavBarSearch')
+    if (!target || document.querySelector('.custom-theme-toggle')) return
+
+    const btn = document.createElement('button')
+    btn.className = 'custom-theme-toggle'
+    btn.setAttribute('aria-label', '切换主题')
+    btn.addEventListener('click', toggleTheme)
+
+    const isLight = document.documentElement.classList.contains('light')
+    btn.innerHTML = isLight
+      ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
+
+    target.parentNode.insertBefore(btn, target.nextSibling)
+  }
+
+  insertToggle()
+  setTimeout(insertToggle, 500)
+  setTimeout(insertToggle, 1500)
 }
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router, siteData }) {
     if (typeof window !== 'undefined') {
-      forceDarkMode()
+      initTheme()
+      injectThemeToggle()
 
       router.onAfterRouteChanged = () => {
         setTimeout(() => {
-          forceDarkMode()
+          initTheme()
+          injectThemeToggle()
           initStaggerAnimation()
           initScrollAnimation()
           initNavbarScroll()
@@ -78,13 +149,15 @@ export default {
 
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-          forceDarkMode()
+          initTheme()
+          injectThemeToggle()
           initStaggerAnimation()
           initScrollAnimation()
           initNavbarScroll()
         })
       } else {
-        forceDarkMode()
+        initTheme()
+        injectThemeToggle()
         initStaggerAnimation()
         initScrollAnimation()
         initNavbarScroll()

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
 
 /* ============================================================
-   1. CSS 自定义属性（设计令牌）
+   1. CSS 自定义属性（设计令牌）- 深色模式（默认）
    ============================================================ */
 :root {
   /* 品牌色 - 深蓝 */
@@ -80,15 +80,71 @@
 }
 
 /* ============================================================
-   2. 全局基础样式 - 强制暗色模式
+   1.5 浅色模式 CSS 变量
+   ============================================================ */
+html.light {
+  /* 品牌色 - 保持深蓝 */
+  --vp-c-brand: #1e3a5f;
+  --vp-c-brand-light: #2a5080;
+  --vp-c-brand-lighter: #3666a0;
+  --vp-c-brand-dark: #152a45;
+  --vp-c-brand-darker: #0c1a2b;
+
+  /* 天蓝 - 主强调色 */
+  --sky-blue: #0288d1;
+  --sky-blue-light: #29b6f6;
+  --sky-blue-dark: #01579b;
+  --sky-blue-glow: rgba(2, 136, 209, 0.3);
+
+  /* 粉色 - 次强调色 */
+  --pink: #e91e63;
+  --pink-light: #f06292;
+  --pink-dark: #c2185b;
+  --pink-glow: rgba(233, 30, 99, 0.3);
+
+  /* 背景色 - 浅色 */
+  --vp-c-bg: #f8fafc;
+  --vp-c-bg-alt: #f1f5f9;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #e2e8f0;
+
+  /* 文字色 - 深色 */
+  --vp-c-text-1: #0f172a;
+  --vp-c-text-2: #334155;
+  --vp-c-text-3: #64748b;
+
+  /* 边框与分隔线 */
+  --vp-c-border: #cbd5e1;
+  --vp-c-divider: #e2e8f0;
+  --vp-c-gutter: #e2e8f0;
+
+  /* 状态色 */
+  --vp-c-success: #0288d1;
+  --vp-c-warning: #e91e63;
+  --vp-c-danger: #dc2626;
+
+  /* 阴影 - 更柔和的浅色阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-sky: 0 4px 20px rgba(2, 136, 209, 0.2);
+  --shadow-pink: 0 4px 20px rgba(233, 30, 99, 0.2);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   2. 全局基础样式
    ============================================================ */
 html {
   scroll-behavior: smooth;
+}
+
+html.dark {
   color-scheme: dark;
 }
 
-html.VPTheme, html.dark {
-  color-scheme: dark;
+html.light {
+  color-scheme: light;
 }
 
 body {
@@ -98,6 +154,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -145,7 +202,7 @@ code {
 }
 
 /* ============================================================
-   3. Hero 区域样式 - 纯色背景，无渐变
+   3. Hero 区域样式
    ============================================================ */
 .VPHomeHero {
   position: relative;
@@ -164,6 +221,12 @@ code {
   pointer-events: none;
 }
 
+html.light .VPHomeHero::before {
+  background-image:
+    linear-gradient(rgba(2, 136, 209, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 136, 209, 0.04) 1px, transparent 1px);
+}
+
 .VPHomeHero::after {
   content: '';
   position: absolute;
@@ -174,6 +237,10 @@ code {
   background-color: rgba(79, 195, 247, 0.04);
   border-radius: 50%;
   pointer-events: none;
+}
+
+html.light .VPHomeHero::after {
+  background-color: rgba(2, 136, 209, 0.06);
 }
 
 .VPHomeHero .container {
@@ -236,6 +303,10 @@ code {
   justify-content: center;
 }
 
+html.light .VPFeature .icon {
+  background-color: rgba(2, 136, 209, 0.1);
+}
+
 .VPFeature .icon svg {
   stroke: currentColor;
   fill: none;
@@ -267,6 +338,10 @@ code {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--vp-c-border);
+}
+
+html.light .VPNav.is-scrolled {
+  background: rgba(248, 250, 252, 0.9);
 }
 
 .VPNavBarMenuLink {
@@ -316,10 +391,20 @@ code {
   transition: all var(--transition-fast);
 }
 
+html.light .VPNavBarSearch .DocSearch-Button {
+  background: rgba(2, 136, 209, 0.08);
+  border: 1px solid rgba(2, 136, 209, 0.15);
+}
+
 .VPNavBarSearch .DocSearch-Button:hover {
   background: rgba(79, 195, 247, 0.15);
   border-color: rgba(79, 195, 247, 0.3);
   color: var(--vp-c-text-2);
+}
+
+html.light .VPNavBarSearch .DocSearch-Button:hover {
+  background: rgba(2, 136, 209, 0.15);
+  border-color: rgba(2, 136, 209, 0.3);
 }
 
 /* 社交链接 */
@@ -436,6 +521,11 @@ code {
   border: 1px solid rgba(79, 195, 247, 0.2);
 }
 
+html.light .vp-doc :not(pre) > code {
+  background: rgba(2, 136, 209, 0.1);
+  border: 1px solid rgba(2, 136, 209, 0.2);
+}
+
 /* 代码高亮 - 语法 token */
 .token.comment,
 .token.prolog,
@@ -520,6 +610,10 @@ code {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--vp-c-border);
   border-radius: var(--radius-lg);
+}
+
+html.light .glass {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .fade-in {
@@ -780,6 +874,10 @@ code {
   transform: translateY(-2px);
 }
 
+html.light .VPButton.alt:hover {
+  background: rgba(2, 136, 209, 0.1);
+}
+
 /* 侧边栏 */
 .VPSidebar {
   background: var(--vp-c-bg-alt);
@@ -797,10 +895,18 @@ code {
   color: var(--vp-c-text-1);
 }
 
+html.light .VPSidebarItem .item .link:hover {
+  background: rgba(2, 136, 209, 0.08);
+}
+
 .VPSidebarItem .item .link.active {
   background: rgba(79, 195, 247, 0.12);
   color: var(--sky-blue);
   border-left: 3px solid var(--sky-blue);
+}
+
+html.light .VPSidebarItem .item .link.active {
+  background: rgba(2, 136, 209, 0.12);
 }
 
 /* 目录 */
@@ -846,6 +952,10 @@ code {
   background: rgba(79, 195, 247, 0.03);
 }
 
+html.light .vp-doc tr:nth-child(even) {
+  background: rgba(2, 136, 209, 0.05);
+}
+
 /* 引用块 */
 .vp-doc blockquote {
   border-left: 3px solid var(--sky-blue);
@@ -854,6 +964,10 @@ code {
   margin: var(--space-lg) 0;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: var(--vp-c-text-2);
+}
+
+html.light .vp-doc blockquote {
+  background: rgba(2, 136, 209, 0.05);
 }
 
 /* 分割线 */
@@ -877,6 +991,11 @@ code {
   border-color: rgba(79, 195, 247, 0.2);
 }
 
+html.light .custom-block.info {
+  background: rgba(2, 136, 209, 0.05);
+  border-color: rgba(2, 136, 209, 0.2);
+}
+
 .custom-block.info .custom-block-title {
   color: var(--sky-blue);
 }
@@ -884,6 +1003,11 @@ code {
 .custom-block.warning {
   background: rgba(244, 143, 177, 0.05);
   border-color: rgba(244, 143, 177, 0.2);
+}
+
+html.light .custom-block.warning {
+  background: rgba(233, 30, 99, 0.05);
+  border-color: rgba(233, 30, 99, 0.2);
 }
 
 .custom-block.warning .custom-block-title {
@@ -899,13 +1023,46 @@ code {
   color: var(--vp-c-danger);
 }
 
-/* 隐藏 VitePress 主题切换按钮 */
+/* 隐藏 VitePress 默认主题切换按钮 - 使用自定义 */
 .VPSwitchAppearance {
   display: none !important;
 }
 
 .VPNavBarAppearance {
   display: none !important;
+}
+
+/* ============================================================
+   12. 自定义主题切换按钮
+   ============================================================ */
+.custom-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--vp-c-border);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-left: 8px;
+}
+
+.custom-theme-toggle:hover {
+  background: rgba(79, 195, 247, 0.1);
+  border-color: var(--sky-blue);
+  color: var(--sky-blue);
+}
+
+html.light .custom-theme-toggle:hover {
+  background: rgba(2, 136, 209, 0.1);
+}
+
+.custom-theme-toggle svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* 滚动条 */
