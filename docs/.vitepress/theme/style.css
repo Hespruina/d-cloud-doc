@@ -375,7 +375,7 @@ code {
 }
 
 .VPNav.is-scrolled {
-  background: rgba(10, 14, 26, 0.9);
+  background: color-mix(in srgb, var(--vp-c-bg) 90%, transparent);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--vp-c-border);
