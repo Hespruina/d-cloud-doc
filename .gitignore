@@ -1,7 +1,5 @@
 # build output
 dist/
-# generated types
-docs/.vitepress/
 
 # dependencies
 node_modules/
@@ -23,6 +21,7 @@ pnpm-debug.log*
 .vscode/
 .idea/
 .lingma/
+docs/.vitepress/cache/
 .trae/
 *.suo
 *.ntvs*
