@@ -50,8 +50,7 @@ export default defineConfig({
         {
           text: '服务器规则',
           items: [
-            { text: '核心规则', link: '/rules/main-rules' },
-            { text: '建筑规范', link: '/rules/building-rules' }
+            { text: '核心规则', link: '/rules/main-rules' }
           ],
         },
       ],
