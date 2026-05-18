@@ -25,17 +25,18 @@
 
 **注意**：个人垃圾桶中的物品会自动清理，请及时取出。
 
+### 视频教程
+
+查看个人垃圾桶的使用演示：
+
+<video controls width="100%">
+  <source src="https://dcld.api.zhrhello.top/website/wtc.mp4" type="video/mp4">
+  您的浏览器不支持视频播放
+</video>
+
+
 ### 赎回物品
 
 从个人垃圾桶中赎回物品需要支付一定的游戏币。
 
 ![赎回物品示例](/example/pay-for-wtc-player.png)
-
-### 视频教程
-
-查看回收站系统的使用演示：
-
-<video controls width="100%">
-  <source src="/videos/wtc.mp4" type="video/mp4">
-  您的浏览器不支持视频播放
-</video>
