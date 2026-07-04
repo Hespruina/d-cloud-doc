@@ -317,6 +317,22 @@ code {
   color: var(--vp-c-text-3);
 }
 
+.VPHomeHero .actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  gap: 12px 16px;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .VPHomeHero .actions {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+}
+
 /* ============================================================
    4. 特性卡片样式
    ============================================================ */
