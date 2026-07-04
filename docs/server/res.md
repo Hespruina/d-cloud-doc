@@ -33,7 +33,7 @@
 图文教程不够？观看视频教程了解更多细节：
 
 <video controls width="100%">
-  <source src="https://dcld.api.zhrhello.top/website/res-create.mp4" type="video/mp4">
+  <source src="https://img.tofaka.com/autoupload/f/H8bYrL_O_IaXfsdrrITcXiNJ5JfnwPuCTpCIumdwLTk/20260704/916u/res-create_%281%29.mp4" type="video/mp4">
   您的浏览器不支持视频播放
 </video>
 
