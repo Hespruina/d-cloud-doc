@@ -8,6 +8,9 @@ hero:
     - theme: brand
       text: 快速开始
       link: /guide/getting-started
+    - theme: brand
+      text: 下载游戏
+      link: https://111pan.cn/s/LVQH5
     - theme: alt
       text: 服务器教程
       link: /server/basic
