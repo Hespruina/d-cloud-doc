@@ -435,7 +435,7 @@ code {
 }
 
 .VPNavBarTitle .logo {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .VPNavBarMenuLink {
