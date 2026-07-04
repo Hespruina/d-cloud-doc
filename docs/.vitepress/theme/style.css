@@ -322,7 +322,7 @@ code {
   grid-auto-flow: column;
   grid-template-rows: repeat(2, auto);
   gap: 12px 16px;
-  justify-content: center;
+  justify-content: start;
 }
 
 @media (max-width: 480px) {
