@@ -83,19 +83,6 @@ hero:
 
 <script>
 if (typeof document !== 'undefined') {
-  function initHeroRipple() {
-    const container = document.querySelector('.VPHomeHero .image-container');
-    if (!container || container.querySelector('.ripple')) return;
-
-    for (let i = 0; i < 4; i++) {
-      const ripple = document.createElement('div');
-      ripple.className = 'ripple';
-      container.insertBefore(ripple, container.firstChild);
-    }
-  }
-
-  initHeroRipple();
-
   document.addEventListener('click', async (e) => {
     const target = e.target.closest('.copy-trigger');
     if (!target) return;
