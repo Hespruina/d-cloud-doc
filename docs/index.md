@@ -4,6 +4,9 @@ hero:
   name: "D-Cloud Minecraft"
   text: "纯净生存服务器"
   tagline: "一个注重社区体验的 Minecraft 生存服务器，欢迎所有玩家加入"
+  image:
+    src: /logo.png
+    alt: D-Cloud Logo
   actions:
     - theme: brand
       text: 快速开始

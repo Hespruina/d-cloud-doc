@@ -336,6 +336,38 @@ code {
   }
 }
 
+/* Hero Logo */
+.VPHomeHero .image {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .VPHomeHero .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .VPHomeHero .image-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .VPHomeHero .image-bg {
+    display: none;
+  }
+
+  .VPHomeHero .VPImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    background: var(--vp-c-bg-elv);
+    border: 1px solid var(--vp-c-border);
+    padding: 16px;
+  }
+}
+
 /* ============================================================
    4. 特性卡片样式
    ============================================================ */
@@ -398,6 +430,10 @@ code {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--vp-c-border);
+}
+
+.VPNavBarTitle .logo {
+  border-radius: var(--radius-md);
 }
 
 .VPNavBarMenuLink {
@@ -760,6 +796,7 @@ code {
   margin: 0 auto var(--space-xl);
   width: 80px;
   height: 80px;
+  border-radius: var(--radius-md);
 }
 
 .cta-section p {
@@ -770,12 +807,14 @@ code {
 .cta-button {
   display: inline-block;
   background-color: var(--sky-blue);
-  color: var(--vp-c-bg);
+  color: #ffffff;
   padding: var(--space-md) var(--space-xl);
   border-radius: var(--radius-sm);
   font-weight: 600;
   font-family: var(--font-body);
   transition: all var(--transition-base);
+  text-decoration: none;
+  border: 1px solid transparent;
 }
 
 .cta-button:hover {
