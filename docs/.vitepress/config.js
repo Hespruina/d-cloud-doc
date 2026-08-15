@@ -18,11 +18,20 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '新手指南', link: '/guide/getting-started' },
+      { text: '入服指南', link: '/join/' },
       { text: '服务器教程', link: '/server/basic' },
       { text: '服务器规则', link: '/rules/main-rules' },
     ],
 
     sidebar: {
+      '/join/': [
+        {
+          text: '入服指南',
+          items: [
+            { text: '入服与正版验证', link: '/join/' },
+          ],
+        },
+      ],
       '/guide/': [
         {
           text: '新手指南',

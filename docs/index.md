@@ -22,6 +22,12 @@ hero:
       link: /rules/main-rules
 ---
 
+<div class="home-announcement" id="homeAnnouncement" role="alert">
+  <span class="ann-badge">公告</span>
+  <span class="ann-text">服务器已升级至 <strong>26.1.2</strong> 版本，使用旧版客户端仍可加入</span>
+  <button type="button" class="ann-close" id="annCloseBtn" aria-label="关闭公告">&times;</button>
+</div>
+
 <div class="home-section">
 
 ## 服务器信息
@@ -235,7 +241,89 @@ hero:
   cursor: pointer;
 }
 
+.home-announcement {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(680px, calc(100% - 32px));
+  padding: 14px 16px;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--vp-c-text-1);
+  animation: announce-rise 0.45s ease;
+}
+
+.home-announcement.is-hidden {
+  display: none;
+}
+
+.ann-badge {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--vp-c-brand-1);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ann-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ann-text strong {
+  color: var(--vp-c-brand-1);
+}
+
+.ann-close {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--vp-c-text-2);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ann-close:hover {
+  background: var(--vp-c-default-soft, rgba(127, 127, 127, 0.12));
+  color: var(--vp-c-text-1);
+}
+
+@keyframes announce-rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
 @media (max-width: 768px) {
+  .home-announcement {
+    bottom: 16px;
+    font-size: 13px;
+  }
   .feature-grid {
     grid-template-columns: 1fr;
   }
@@ -277,5 +365,25 @@ if (typeof document !== 'undefined') {
       return;
     }
   });
+
+  // 首页悬浮公告：关闭后记忆状态
+  const ann = document.getElementById('homeAnnouncement');
+  const annClose = document.getElementById('annCloseBtn');
+  const ANN_KEY = 'dc_home_announcement_dismissed';
+  if (ann) {
+    if (localStorage.getItem(ANN_KEY) === '1') {
+      ann.classList.add('is-hidden');
+    }
+    if (annClose) {
+      annClose.addEventListener('click', () => {
+        ann.classList.add('is-hidden');
+        try {
+          localStorage.setItem(ANN_KEY, '1');
+        } catch (err) {
+          console.error('保存公告状态失败:', err);
+        }
+      });
+    }
+  }
 }
 </script>
