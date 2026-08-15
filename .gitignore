@@ -7,6 +7,7 @@ node_modules/
 # VitePress cache and temp files
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+docs/.vitepress/.temp/
 
 # logs
 npm-debug.log*
@@ -23,6 +24,7 @@ pnpm-debug.log*
 
 # Editor directories and files
 .vscode/
+.workbuddy/
 .idea/
 .lingma/
 .trae/
