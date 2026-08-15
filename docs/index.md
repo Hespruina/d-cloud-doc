@@ -43,6 +43,10 @@ hero:
     <div class="info-label">最大在线</div>
     <div class="info-value">50 人</div>
   </div>
+  <div class="info-card">
+    <div class="info-label">服务器咨询 / 问题反馈邮箱</div>
+    <div class="info-value copy-trigger" data-copy="dcld@zhrhello.top" title="点击复制">dcld@zhrhello.top （点我复制）</div>
+  </div>
 </div>
 
 </div>
