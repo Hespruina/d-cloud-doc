@@ -29,11 +29,11 @@ hero:
 <div class="server-info-grid">
   <div class="info-card">
     <div class="info-label">服务器地址</div>
-    <div class="info-value copy-trigger" data-copy="dc.zhrhello.top" title="点击复制">dc.zhrhello.top</div>
+    <div class="info-value copy-trigger" data-copy="dc.zhrhello.top" title="点击复制">dc.zhrhello.top （点我复制）</div>
   </div>
   <div class="info-card">
     <div class="info-label">服务器版本</div>
-    <div class="info-value">1.21.8</div>
+    <div class="info-value">26.1.2</div>
   </div>
   <div class="info-card">
     <div class="info-label">游戏模式</div>

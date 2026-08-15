@@ -9,9 +9,9 @@
   - <span class="copy-inline" data-copy="wh.frp.one:8852" title="点击复制">`wh.frp.one:8852`</span>
   - <span class="copy-inline" data-copy="cn.gz.alichenserver.hayfrp.qzz.io:12308" title="点击复制">`cn.gz.alichenserver.hayfrp.qzz.io:12308`</span>
   - <span class="copy-inline" data-copy="8790f7fff6d1.ofalias.com:24663" title="点击复制">`8790f7fff6d1.ofalias.com:24663`</span>
-- **服务器主版本**: 1.21.8
+- **服务器主版本**: 26.1.2
 - **支持版本**: 1.8 - 最新版本
-- **推荐版本**: 1.21.8
+- **推荐版本**: 26.1.2
 - **游戏模式**: 纯净生存
 - **最大在线**: 50人
 
