@@ -1,7 +1,7 @@
 ---
 layout: home
 title: D-Cloud Minecraft 纯净生存服务器
-description: D-Cloud 是一个注重社区体验的 Minecraft 纯净生存服务器，服务器地址 dc.zhrhello.top，主版本 26.1.2 ，支持 1.8 至最新版本，提供领地、经济、签到等玩法。
+description: D-Cloud 是一个注重社区体验的 Minecraft 纯净生存服务器，服务器地址 dc.zhrhello.top，主版本 26.1.2 ，支持 1.8 至最新版本。
 hero:
   name: "D-Cloud Minecraft"
   text: "纯净生存服务器"
