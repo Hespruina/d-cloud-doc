@@ -26,26 +26,33 @@ hero:
 
 ## 服务器信息
 
+<p class="section-hint">点击任意条目即可复制对应内容</p>
+
 <div class="server-info-grid">
-  <div class="info-card">
+  <div class="info-card" data-copy="dc.zhrhello.top">
     <div class="info-label">服务器地址</div>
-    <div class="info-value copy-trigger" data-copy="dc.zhrhello.top" title="点击复制">dc.zhrhello.top （点我复制）</div>
+    <div class="info-value">dc.zhrhello.top</div>
   </div>
-  <div class="info-card">
+  <div class="info-card" data-copy="26.1.2">
     <div class="info-label">服务器版本</div>
     <div class="info-value">26.1.2</div>
   </div>
-  <div class="info-card">
+  <div class="info-card" data-copy="纯净生存">
     <div class="info-label">游戏模式</div>
     <div class="info-value">纯净生存</div>
   </div>
-  <div class="info-card">
+  <div class="info-card" data-copy="50 人">
     <div class="info-label">最大在线</div>
     <div class="info-value">50 人</div>
   </div>
-  <div class="info-card">
+  <div class="info-card" data-copy="dcld@zhrhello.top">
     <div class="info-label">服务器咨询 / 问题反馈邮箱</div>
-    <div class="info-value copy-trigger" data-copy="dcld@zhrhello.top" title="点击复制">dcld@zhrhello.top （点我复制）</div>
+    <div class="info-value">dcld@zhrhello.top</div>
+  </div>
+  <div class="info-card" data-copy="536343466">
+    <div class="info-label">QQ 群</div>
+    <div class="info-value">536343466</div>
+    <button type="button" class="info-join-btn" data-href="https://qm.qq.com/cgi-bin/qm/qr?k=TgsnceghZrh1XmTloJYUzFt1Ta2MkIpW&jump_from=webapi&authKey=aHF6XkBWFv7e0dUFTDQy4HSq5r7X7WC3EuQQIjCRRpytQbN2Kclozz80ydpxQZ23" data-target="_blank">加入群聊</button>
   </div>
 </div>
 
@@ -116,6 +123,37 @@ hero:
 
 .online-services {
   margin-top: 48px;
+}
+
+.section-hint {
+  margin: -6px 0 20px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+.info-card {
+  cursor: pointer;
+}
+
+.info-card:hover .info-value {
+  color: var(--vp-c-brand-1);
+}
+
+.info-join-btn {
+  margin-top: 12px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--vp-c-brand-1);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.info-join-btn:hover {
+  background: var(--vp-c-brand-2);
 }
 
 .feature-grid {
@@ -207,8 +245,17 @@ hero:
 <script>
 if (typeof document !== 'undefined') {
   document.addEventListener('click', async (e) => {
+    // 跳转按钮（优先处理，避免触发复制）
+    const navBtn = e.target.closest('[data-href]');
+    if (navBtn) {
+      const href = navBtn.getAttribute('data-href');
+      const winTarget = navBtn.getAttribute('data-target') || '_self';
+      if (href) window.open(href, winTarget);
+      return;
+    }
+
     // 复制触发
-    const copyEl = e.target.closest('.copy-trigger');
+    const copyEl = e.target.closest('.info-card');
     if (copyEl) {
       const text = copyEl.getAttribute('data-copy');
       if (text) {
@@ -228,14 +275,6 @@ if (typeof document !== 'undefined') {
         }
       }
       return;
-    }
-
-    // 跳转按钮
-    const navBtn = e.target.closest('[data-href]');
-    if (navBtn) {
-      const href = navBtn.getAttribute('data-href');
-      const winTarget = navBtn.getAttribute('data-target') || '_self';
-      if (href) window.open(href, winTarget);
     }
   });
 }
