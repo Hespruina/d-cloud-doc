@@ -51,6 +51,36 @@ hero:
 
 </div>
 
+<div class="home-section online-services">
+
+## 在线服务
+
+<div class="feature-grid">
+
+  <div class="feature-card">
+    <h3 class="feature-title">在线音乐厅</h3>
+    <p class="feature-desc">我们服务器安装了 AllMusic 插件，需要配合客户端 mod 使用；但鉴于该模组存在间歇性卡 UI、部分玩家听不到音乐的问题，我们制作了这个网页音乐厅。同样支持点歌 / 切歌，与服务器内 AllMusic 插件完全同步。</p>
+    <button type="button" class="feature-btn" data-href="https://dcmusic.zhrhello.top/" data-target="_blank">进入音乐厅 →</button>
+  </div>
+
+  <div class="feature-card">
+    <h3 class="feature-title">在线聊天栏</h3>
+    <p class="feature-desc">『在线聊天室』正式上线！服务器 + 网页实时同步。不方便进服务器但想聊天？在网页也能和游戏内玩家聊天！</p>
+    <ul class="feature-list">
+      <li>服务器消息实时推送</li>
+      <li>多区服可切换</li>
+      <li>仿 Telegram 配色</li>
+      <li>自动匹配头像</li>
+      <li>并不优雅的动画</li>
+      <li>消息来源标识（游戏 / 网页）</li>
+    </ul>
+    <button type="button" class="feature-btn" data-href="https://dcchat.zhrhello.top/" data-target="_blank">立即体验 →</button>
+  </div>
+
+</div>
+
+</div>
+
 <div class="home-section cta-section">
 
 <img src="/logo.png" alt="D-Cloud Logo" class="cta-logo" />
@@ -59,7 +89,7 @@ hero:
 
 <p>加入我们的 QQ 群，与其他玩家交流，获取最新服务器动态。</p>
 
-<a href="https://qm.qq.com/cgi-bin/qm/qr?k=TgsnceghZrh1XmTloJYUzFt1Ta2MkIpW&jump_from=webapi&authKey=aHF6XkBWFv7e0dUFTDQy4HSq5r7X7WC3EuQQIjCRRpytQbN2Kclozz80ydpxQZ23" class="cta-button" target="_blank">加入 QQ</a>
+<button type="button" class="cta-button" data-href="https://qm.qq.com/cgi-bin/qm/qr?k=TgsnceghZrh1XmTloJYUzFt1Ta2MkIpW&jump_from=webapi&authKey=aHF6XkBWFv7e0dUFTDQy4HSq5r7X7WC3EuQQIjCRRpytQbN2Kclozz80ydpxQZ23" data-target="_blank">加入 QQ</button>
 
 </div>
 
@@ -82,6 +112,95 @@ hero:
 }
 .copy-feedback.show {
   opacity: 1;
+}
+
+.online-services {
+  margin-top: 48px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--vp-c-bg-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--vp-c-brand-1);
+}
+
+.feature-icon {
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.feature-title {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+.feature-desc {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+  flex-grow: 1;
+}
+
+.feature-list {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--vp-c-text-2);
+  flex-grow: 1;
+}
+
+.feature-btn {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  background: var(--vp-c-brand-1);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.feature-btn:hover {
+  background: var(--vp-c-brand-2);
+  transform: translateX(2px);
+}
+
+.cta-button {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
@@ -109,5 +228,12 @@ if (typeof document !== 'undefined') {
       console.error('复制失败:', err);
     }
   });
+
+  const navBtn = e.target.closest('[data-href]');
+  if (navBtn) {
+    const href = navBtn.getAttribute('data-href');
+    const target = navBtn.getAttribute('data-target') || '_self';
+    if (href) window.open(href, target);
+  }
 }
 </script>
