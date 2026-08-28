@@ -27,6 +27,8 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
+    // Microsoft Clarity 用户行为分析跟踪
+    ['script', {}, `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "y9g51l10wc");`],
     ['meta', { name: 'theme-color', content: '#0a0e1a' }],
     // 基础 SEO 元信息
     ['meta', { name: 'keywords', content: 'Minecraft,我的世界,生存服务器,纯净生存,D-Cloud,服务器教程,领地保护,经济系统,每日签到,命令大全' }],
